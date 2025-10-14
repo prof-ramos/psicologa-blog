@@ -1,0 +1,291 @@
+/* ---- 🔤 TYPOGRAPHY ENHANCEMENTS 🔤 ---- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---- 🔨 BRUTAL STYLING 🔨 ---- */
+@layer components {
+  .brutal-card {
+    @apply border-8 border-black;
+    filter: drop-shadow(12px 12px 0 rgb(0 0 0 / 1));
+    transition: filter 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .brutal-card:hover {
+    filter: drop-shadow(8px 8px 0 rgb(0 0 0 / 1));
+    transform: translate(2px, 2px) !important;
+  }
+
+  .brutal-pill {
+    @apply border-4 border-black;
+    filter: drop-shadow(4px 4px 0 rgb(0 0 0 / 1));
+    transition: filter 0.2s ease-in-out, transform 0.2s ease-in-out;
+  }
+
+  .brutal-pill:hover {
+    filter: drop-shadow(2px 2px 0 rgb(0 0 0 / 1));
+    transform: translate(1px, 1px);
+  }
+
+  .brutal-button {
+    @apply border-4 border-black font-black uppercase tracking-wider;
+    filter: drop-shadow(6px 6px 0 rgb(0 0 0 / 1));
+    transition: filter 0.2s ease-in-out, transform 0.2s ease-in-out;
+    font-weight: 900 !important;
+    letter-spacing: 0.1em;
+  }
+
+  .brutal-button:hover {
+    filter: drop-shadow(3px 3px 0 rgb(0 0 0 / 1));
+    transform: translate(2px, 2px);
+  }
+
+  .card-shadow {
+    filter: drop-shadow(7px 7px 0 rgb(0 0 0 / 1));
+    transition: filter 0.5s ease-in-out;
+  }
+
+  .card-shadow:hover {
+    filter: drop-shadow(5px 5px 0 rgb(0 0 0 / 1));
+  }
+
+  /* Text utilities */
+  .text-stroke {
+    text-shadow: 2px 2px 0px #000;
+    font-weight: 900;
+  }
+
+  .text-outlined {
+    text-shadow:
+      -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000;
+    font-weight: 800;
+  }
+
+  .text-bold {
+    font-weight: 900;
+    color: inherit;
+  }
+}
+
+:root {
+  /* ---- ⚫️ Colors ⚪️ ---- */
+  --sys-color-white: #FFFFFF;
+  --sys-color-black: #000000;
+  --color-primary: #4CA6DF;
+  --color-secondary: #BFFF00;
+  --color-accent: #FF6B00;
+  --color-tertiary: #EE99B8;
+  --color-deep: #5E18EB;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ---- 🔤 TYPOGRAPHY ENHANCEMENTS 🔤 ---- */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.5;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+
+/* Consistent typography classes */
+.heading-font {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.body-font {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Legacy font classes for backward compatibility */
+.outfit,
+.righteous,
+.dm-serif {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+
+.poppins,
+.sanchez {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Minimum font sizes for accessibility */
+p, .text-base {
+  font-size: max(16px, 1rem);
+}
+
+.text-sm {
+  font-size: max(14px, 0.875rem);
+}
+
+.text-xs {
+  font-size: max(12px, 0.75rem);
+}
+
+/* ---- 📜 WINDOWS 95 SCROLLBAR STYLING 📜 ---- */
+::-webkit-scrollbar {
+  width: 22px;
+  background-color: var(--sys-color-white);
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(45deg, var(--sys-color-black) 25%, transparent 25%, transparent 75%, var(--sys-color-black) 75%, var(--sys-color-black)),
+              linear-gradient(45deg, var(--sys-color-black) 25%, transparent 25%, transparent 75%, var(--sys-color-black) 75%, var(--sys-color-black));
+  background-color: var(--sys-color-white);
+  background-size: 4px 4px;
+  background-position: 0 0, 2px 2px;
+  width: 10px;
+  border-left: 3px solid var(--sys-color-black);
+}
+
+::-webkit-scrollbar-thumb {
+  width: 20px;
+  box-sizing: content-box;
+  background-color: var(--sys-color-white);
+  border: 2px solid var(--sys-color-black);
+  border-right: none;
+}
+
+::-webkit-scrollbar-button:horizontal:start:decrement,
+::-webkit-scrollbar-button:horizontal:end:increment,
+::-webkit-scrollbar-button:vertical:start:decrement,
+::-webkit-scrollbar-button:vertical:end:increment {
+  display: block;
+}
+
+::-webkit-scrollbar-button:vertical:start {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='22' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' stroke='%23000' d='M.5.5h21v22.375H.5z'/%3E%3Cpath fill='%23000' d='M1 23h20v-2H1zM1.375 12.375h5.5V11h-5.5zM6.875 17.875h6.875V16.5H6.875zM6.875 17.875v-5.5H5.5v5.5zM9.625 5.5V4.125H8.25V5.5zM11 4.125V2.75H9.625v1.375zM19.25 12.375V11h-1.375v1.375zM17.875 11V9.625H16.5V11zM16.5 9.625V8.25h-1.375v1.375zM15.125 8.25V6.875H13.75V8.25zM13.75 6.875V5.5h-1.375v1.375zM12.375 5.5V4.125H11V5.5zM8.25 6.875V5.5H6.875v1.375zM6.875 8.25V6.875H5.5V8.25zM5.5 9.625V8.25H4.125v1.375zM4.125 11V9.625H2.75V11z'/%3E%3Cpath fill='%23000' d='M2.75 12.375V11H1.375v1.375zM15.125 17.875v-5.5H13.75v5.5zM13.75 12.375h5.5V11h-5.5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  height: 23.38px;
+}
+
+::-webkit-scrollbar-button:vertical:start:active {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='22' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' stroke='%23000' d='M.5.5h21v22.38H.5z'/%3E%3Cpath fill='%23000' d='M1 23.005h20v-2H1zM1.375 12.378h5.5v-1.375h-5.5zM6.875 17.879h6.875V6.877H6.875zM6.875 17.879v-5.501H5.5v5.5zM9.625 5.501V4.126H8.25v1.375zM11 4.126V2.75H9.625v1.375zM19.25 12.378v-1.375h-1.375v1.375zM17.875 11.002V9.627H13.75v1.375zM16.5 9.627V8.252h-2.75v1.375zM15.125 8.252V6.877H13.75v1.375zM13.75 6.876V5.501h-1.375v1.375zM12.375 5.501V4.126h-2.75v1.375zM12.375 6.876V5.501h-5.5v1.375zM6.875 8.252V6.877H5.5v1.375zM6.875 9.627V8.252h-2.75v1.375zM6.875 11.002V9.627H2.75v1.375z'/%3E%3Cpath fill='%23000' d='M2.75 12.378v-1.375H1.375v1.375zM15.125 17.879v-5.501H13.75v5.5zM13.75 12.378h5.5v-1.375h-5.5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  height: 23.38px;
+}
+
+::-webkit-scrollbar-button:vertical:end {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='22' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' stroke='%23000' d='M.5 22.875h21V.5H.5z'/%3E%3Cpath fill='%23000' d='M1 .375h20v2H1zM1.375 11h5.5v1.375h-5.5zM6.875 5.5h6.875v1.375H6.875zM6.875 5.5V11H5.5V5.5zM9.625 17.875v1.375H8.25v-1.375zM11 19.25v1.375H9.625V19.25zM19.25 11v1.375h-1.375V11zM17.875 12.375v1.375H16.5v-1.375zM16.5 13.75v1.375h-1.375V13.75zM15.125 15.125V16.5H13.75v-1.375zM13.75 16.5v1.375h-1.375V16.5zM12.375 17.875v1.375H11v-1.375zM8.25 16.5v1.375H6.875V16.5zM6.875 15.125V16.5H5.5v-1.375zM5.5 13.75v1.375H4.125V13.75zM4.125 12.375v1.375H2.75v-1.375z'/%3E%3Cpath fill='%23000' d='M2.75 11v1.375H1.375V11zM15.125 5.5V11H13.75V5.5zM13.75 11h5.5v1.375h-5.5z'/%3E%3C/svg%3E");
+  height: 23.38px;
+}
+
+::-webkit-scrollbar-button:vertical:end:active {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='22' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' stroke='%23000' d='M.5 22.88h21V.5H.5z'/%3E%3Cpath fill='%23000' d='M1 .375h20v2H1zM1.375 11.002h5.5v1.375h-5.5zM6.875 5.501h6.875v11.002H6.875zM6.875 5.501v5.501H5.5v-5.5zM9.625 17.879v1.375H8.25v-1.375zM11 19.254v1.375H9.625v-1.375zM19.25 11.002v1.375h-1.375v-1.375zM17.875 12.378v1.375H13.75v-1.375zM16.5 13.753v1.375h-2.75v-1.375zM15.125 15.128v1.375H13.75v-1.375zM13.75 16.503v1.375h-1.375v-1.375zM12.375 17.879v1.375h-2.75v-1.375zM12.375 16.503v1.375h-5.5v-1.375zM6.875 15.128v1.375H5.5v-1.375zM6.875 13.753v1.375h-2.75v-1.375zM6.875 12.378v1.375H2.75v-1.375z'/%3E%3Cpath fill='%23000' d='M2.75 11.002v1.375H1.375v-1.375zM15.125 5.501v5.501H13.75v-5.5zM13.75 11.002h5.5v1.375h-5.5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  height: 23.38px;
+}
+
+/* ---- 📱 RESPONSIVE & ACCESSIBILITY ---- */
+::selection {
+  background-color: #BFFF00;
+  color: #000;
+}
+
+/* Focus states for accessibility */
+.brutal-button:focus,
+.brutal-pill:focus,
+.brutal-card:focus {
+  outline: 4px solid #FF6B00;
+  outline-offset: 2px;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .brutal-card,
+  .brutal-pill,
+  .brutal-button {
+    transition: none;
+    transform: none !important;
+  }
+
+  .brutal-card:hover {
+    transform: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .brutal-card,
+  .brutal-pill,
+  .brutal-button {
+    border-width: 6px;
+  }
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .brutal-card {
+    filter: drop-shadow(6px 6px 0 rgb(0 0 0 / 1));
+  }
+
+  .brutal-card:hover {
+    filter: drop-shadow(4px 4px 0 rgb(0 0 0 / 1));
+  }
+
+  .text-stroke {
+    text-shadow: 1px 1px 0px #000;
+    font-weight: 900;
+  }
+
+  .text-outlined {
+    text-shadow:
+      -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+      1px 1px 0 #000;
+    font-weight: 800;
+  }
+
+  /* Ensure minimum touch targets on mobile */
+  .brutal-button,
+  .brutal-pill {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px 16px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .brutal-card,
+  .brutal-pill,
+  .brutal-button {
+    filter: none;
+    border: 2px solid #000;
+    box-shadow: none;
+  }
+}
+
+/* Line clamp utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
