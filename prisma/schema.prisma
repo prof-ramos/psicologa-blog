@@ -31,4 +31,7 @@ model Post {
   @@index([published])
   @@index([slug])
   @@index([pubDate])
+  @@index([category])
+  @@index([published, pubDate])
+  @@index([published, featured])
 }

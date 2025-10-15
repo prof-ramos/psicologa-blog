@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 import { Prisma } from '@prisma/client';
 import { z } from 'zod';
+import { invalidatePostCache } from '@/lib/posts';
 
 const postSchema = z.object({
   slug: z.string().min(1, 'Slug é obrigatório'),
@@ -86,6 +87,9 @@ export async function POST(request: NextRequest) {
         pubDate: data.pubDate ? new Date(data.pubDate) : new Date(),
       },
     });
+
+    // Invalidate cache after creating post
+    invalidatePostCache(post.slug);
 
     return NextResponse.json(post, { status: 201 });
   } catch (error) {

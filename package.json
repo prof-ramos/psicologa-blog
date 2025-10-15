@@ -9,7 +9,10 @@
     "lint": "next lint",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
-    "prisma:studio": "prisma studio"
+    "prisma:studio": "prisma studio",
+    "test:load": "node tests/performance/load-test.js",
+    "test:perf": "npm run test:load",
+    "metrics": "curl http://localhost:3000/api/admin/metrics | json_pp"
   },
   "dependencies": {
     "@prisma/client": "^6.17.1",

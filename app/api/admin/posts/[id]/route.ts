@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
 import { Prisma } from '@prisma/client';
 import { z } from 'zod';
+import { invalidatePostCache } from '@/lib/posts';
 
 const postSchema = z.object({
   slug: z.string().min(1, 'Slug é obrigatório').optional(),
@@ -100,6 +101,13 @@ export async function PATCH(
       data: updateData,
     });
 
+    // Invalidate cache after updating post
+    invalidatePostCache(existing.slug);
+    if (data.slug && data.slug !== existing.slug) {
+      // Also invalidate new slug if it changed
+      invalidatePostCache(data.slug);
+    }
+
     return NextResponse.json(post);
   } catch (error) {
     if (error instanceof z.ZodError) {
@@ -140,6 +148,9 @@ export async function DELETE(
     await prisma.post.delete({
       where: { id },
     });
+
+    // Invalidate cache after deleting post
+    invalidatePostCache(existing.slug);
 
     return NextResponse.json({ success: true });
   } catch (error) {
