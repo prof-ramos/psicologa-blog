@@ -25,6 +25,7 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     fetchPosts();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
 
   const fetchPosts = async () => {
@@ -103,7 +104,7 @@ export default function AdminDashboard() {
             <Filter className="w-5 h-5" />
             <select
               value={filter}
-              onChange={(e) => setFilter(e.target.value as any)}
+              onChange={(e) => setFilter(e.target.value as 'all' | 'published' | 'draft')}
               className="border-4 border-black p-3 font-bold focus:outline-none focus:ring-4 focus:ring-accent"
             >
               <option value="all">Todos</option>

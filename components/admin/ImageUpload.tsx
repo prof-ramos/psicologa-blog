@@ -38,8 +38,8 @@ export function ImageUpload({ onUpload }: ImageUploadProps) {
 
       setUploadedUrl(data.url);
       onUpload(data.url);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Erro desconhecido');
     } finally {
       setUploading(false);
     }

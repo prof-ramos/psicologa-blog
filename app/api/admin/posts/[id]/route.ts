@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
+import { Prisma } from '@prisma/client';
 import { z } from 'zod';
 
 const postSchema = z.object({
@@ -89,7 +90,7 @@ export async function PATCH(
       }
     }
 
-    const updateData: any = { ...data };
+    const updateData: Prisma.PostUpdateInput = { ...data };
     if (data.pubDate) {
       updateData.pubDate = new Date(data.pubDate);
     }

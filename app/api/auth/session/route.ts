@@ -13,7 +13,7 @@ export async function GET() {
       isAuthenticated: true,
       email: session.email,
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json({ isAuthenticated: false }, { status: 500 });
   }
 }

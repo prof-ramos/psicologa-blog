@@ -6,14 +6,33 @@ import { useParams } from 'next/navigation';
 import { ArrowLeft, Loader } from 'lucide-react';
 import { PostEditorForm } from '@/components/admin/PostEditorForm';
 
+interface Post {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  content: string;
+  published: boolean;
+  featured: boolean;
+  category?: string;
+  tags: string[];
+  zodiacSign?: string;
+  difficulty?: string;
+  humorLevel?: string;
+  targetAudience?: string;
+  readingTime?: number;
+  coverImage?: string;
+}
+
 export default function EditPostPage() {
   const params = useParams();
-  const [post, setPost] = useState<any>(null);
+  const [post, setPost] = useState<Post | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
   useEffect(() => {
     fetchPost();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchPost = async () => {
@@ -26,8 +45,8 @@ export default function EditPostPage() {
       }
 
       setPost(data);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Erro desconhecido');
     } finally {
       setLoading(false);
     }

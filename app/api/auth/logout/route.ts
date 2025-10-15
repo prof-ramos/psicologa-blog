@@ -7,7 +7,7 @@ export async function POST() {
     session.destroy();
 
     return NextResponse.json({ success: true });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: 'Erro ao fazer logout' },
       { status: 500 }

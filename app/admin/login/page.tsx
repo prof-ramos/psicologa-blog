@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { Lock, Mail } from 'lucide-react';
 
 export default function LoginPage() {
@@ -33,7 +34,7 @@ export default function LoginPage() {
 
       router.push('/admin');
       router.refresh();
-    } catch (err) {
+    } catch {
       setError('Erro ao conectar com o servidor');
       setLoading(false);
     }
@@ -106,12 +107,12 @@ export default function LoginPage() {
         </div>
 
         <div className="mt-6 text-center">
-          <a
+          <Link
             href="/"
             className="text-white font-bold hover:text-secondary transition-colors underline"
           >
             ← Voltar para o site
-          </a>
+          </Link>
         </div>
       </div>
     </main>

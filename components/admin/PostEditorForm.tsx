@@ -98,8 +98,8 @@ export function PostEditorForm({ initialData, mode }: PostEditorFormProps) {
 
       router.push('/admin');
       router.refresh();
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Erro desconhecido');
       setLoading(false);
     }
   };
