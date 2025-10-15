@@ -1,0 +1,37 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+model Post {
+  id             String   @id @default(cuid())
+  slug           String   @unique
+  title          String
+  description    String
+  content        String   @db.Text
+  pubDate        DateTime @default(now())
+  updatedDate    DateTime @updatedAt
+  author         String   @default("Psicóloga em Outra Dimensão")
+  category       String?
+  tags           String[]
+  featured       Boolean  @default(false)
+  zodiacSign     String?
+  difficulty     String?
+  humorLevel     String?
+  targetAudience String?
+  readingTime    Int?
+  published      Boolean  @default(false)
+  coverImage     String?
+
+  @@index([published])
+  @@index([slug])
+  @@index([pubDate])
+}

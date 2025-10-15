@@ -94,16 +94,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           )}
 
           {/* Content */}
-          <div className="prose prose-lg max-w-none">
-            <p className="text-lg leading-relaxed">
-              Este é um exemplo de página de blog post. Em uma implementação real, você integraria
-              com MDX ou um CMS como Sanity.io para renderizar o conteúdo completo do artigo.
-            </p>
-            <p className="mt-4 text-lg leading-relaxed">
-              O design neobrutralista está mantido com bordas grossas, sombras dramáticas e cores
-              vibrantes que caracterizam este estilo único.
-            </p>
-          </div>
+          <div
+            className="prose prose-lg max-w-none"
+            dangerouslySetInnerHTML={{ __html: post.data.content || '' }}
+          />
         </div>
       </article>
     </main>
