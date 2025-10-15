@@ -1,13 +1,10 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url = env("POSTGRES_PRISMA_URL")
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL")
   directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
@@ -16,7 +13,7 @@ model Post {
   slug           String   @unique
   title          String
   description    String
-  content        String   @db.Text
+  content        String
   pubDate        DateTime @default(now())
   updatedDate    DateTime @updatedAt
   author         String   @default("Psicóloga em Outra Dimensão")
